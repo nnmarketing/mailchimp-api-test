@@ -36,10 +36,21 @@
 
 <script>
   $( 'document' ).ready(function(){
-    $.get( "localhost:9001/api/memberList", function( data ) {
-      $( ".result" ).html( data );
-      alert( "Load was performed." );
-    });
+    var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://us12.api.mailchimp.com/3.0/lists/263a9dcebf/members",
+  "method": "GET",
+  "headers": {
+    "authorization": "Basic YW55c3RyaW5nOjIxN2ZjZmYyM2Q1MjJjMTc5ZTI5OGU0OTI3YzhjNDBhLXVzMTI=",
+    "cache-control": "no-cache",
+    "postman-token": "75f90b79-6e1b-55f3-cb19-e132eea2df07"
+  }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
   });
 </script>
   <!-- Primary Page Layout
